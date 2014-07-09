@@ -4,5 +4,6 @@
 
  True.prototype.evaluation= function evaluation(){
 	return true;
-};
+
+	}
 
