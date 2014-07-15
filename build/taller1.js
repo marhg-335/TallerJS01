@@ -89,11 +89,19 @@ function False(){
 
 
 
+<<<<<<< HEAD
 function Variable(id){
 	this.id = id;
 };
 
 Variable.prototype.evaluation = function evaluation(assignments) {
+=======
+export.Variable = function Variable(id){
+	this.id = id;
+};
+
+export.Variable.prototype.evaluation = function evaluation(assignments) {
+>>>>>>> c90c03474ab4b0b7dc87c8393bc1afcadb9856f9
 	if (!assignments  || ! assignments.hasOwnProperty(this.id))
 	{
 		throw new Error("Variable no existe");
