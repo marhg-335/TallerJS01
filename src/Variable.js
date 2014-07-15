@@ -3,7 +3,7 @@ function Variable(id){
 };
 
 Variable.prototype.evaluation = function evaluation(assignments) {
-	if (! assignments.hasOwnProperty(this.id))
+	if (!assignments  || ! assignments.hasOwnProperty(this.id))
 	{
 		throw new Error("Variable no existe");
 	};
