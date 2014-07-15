@@ -2,6 +2,9 @@ module.exports = function(grunt) {
 
 var sources = ['Biconditional.js','Condictional.js','Conjunction.js','Disjunction.js',
 			'ExclusiveDisjunction.js','False.js','True.js','Variable.js', 'Negation.js'];
+sources = sources.map( function(path){
+	return 'src/' + path;
+	});
 			
   // Project configuration.
   grunt.initConfig({
