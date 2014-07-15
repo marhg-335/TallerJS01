@@ -1,7 +1,7 @@
 
-function Negation(x){	
-	this.x = x;	
+function Negation(operand){	
+	this.operand = operand;	
 }
 Negation.prototype.evaluation = function( assigments){
-	return !(this.x.evaluation(assigments));
+	return !(this.operand.evaluation(assigments));
 };
