@@ -1,5 +1,7 @@
 {
 	"name": "Taller 1 JS",
 	"dependencies" : {},
-	"devDependencies" : {}
+	"devDependencies" : {
+		"grunt": "~0.4.5"
+		}
 }
