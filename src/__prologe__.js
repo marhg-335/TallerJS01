@@ -1,2 +1,2 @@
-var taller1 = (function()){
+var taller1 = (function(){
 	var exports = {};

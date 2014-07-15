@@ -1,3 +1,6 @@
+var taller1 = (function()){
+	var exports = {};
+
 function Biconditional(left, right) {
     this.left = left;
     this.right = right;
@@ -38,7 +41,7 @@ Conjunction.prototype.evaluation = function evaluation(assignments) {
 };
 
 
-function Disjunction(left,right){
+var Disjunction = exports.Disjunction = function Disjunction(left,right){
 	if (!!left || !!right){
 		throw new Error("Disjunction: invalid operands!");
 }
@@ -69,16 +72,16 @@ ExclusiveDisjunction.prototype.evaluation= function( assigments ){
 };
 
 
-function False(){
+var False = exports.False = function False(){
 	//do nothing
-}
+};
 
  False.prototype.evaluation= function evaluation(){
 	return false;
 };
 
 
- function True(){
+ var True = exports.True = function True(){
 		//do nothingggg
  }
 
@@ -89,19 +92,11 @@ function False(){
 
 
 
-<<<<<<< HEAD
-function Variable(id){
-	this.id = id;
-};
-
-Variable.prototype.evaluation = function evaluation(assignments) {
-=======
 export.Variable = function Variable(id){
 	this.id = id;
 };
 
 export.Variable.prototype.evaluation = function evaluation(assignments) {
->>>>>>> c90c03474ab4b0b7dc87c8393bc1afcadb9856f9
 	if (!assignments  || ! assignments.hasOwnProperty(this.id))
 	{
 		throw new Error("Variable no existe");
@@ -120,3 +115,7 @@ function Negation(operand){
 Negation.prototype.evaluation = function( assigments){
 	return !(this.operand.evaluation(assigments));
 };
+
+
+	return exports;
+	})();
