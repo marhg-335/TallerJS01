@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+var sources = ['Biconditional.js','Condictional.js','Conjunction.js','Disjunction.js',
+			'ExclusiveDisjunction.js','False.js','True.js','Variable.js', 'Negation.js'];
+			
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -8,16 +11,26 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+        src: 'build/taller1.js',
+        dest: 'build/taller1.min.js',
       }
-    }
+    },
+	concat: {
+      options: {
+        separator: '\n\n',
+      },
+      dist: {
+        src: sources,
+        dest: 'build/taller1.js',
+      },
+    },
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['concat', 'uglify']);
 
 };
