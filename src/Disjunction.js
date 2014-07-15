@@ -1,4 +1,4 @@
-function Disjunction(left,right){
+var Disjunction = exports.Disjunction = function Disjunction(left,right){
 	if (!!left || !!right){
 		throw new Error("Disjunction: invalid operands!");
 }
