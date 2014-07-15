@@ -11,6 +11,21 @@ Biconditional.prototype.evaluation = function evaluation(assignments) {
 }
 
 
+function Conditional(left,right){
+    this.left = left;
+    this.right = right;
+}
+
+Conditional.prototype.evaluation = function evaluation(assignments) {
+    var resLeft = this.left.evaluation(assignments);
+    var resRight = this.right.evaluation(assignments);
+
+    return resLeft && !resRight;
+}
+
+
+
+
 function Conjunction(left, right){
 	this.left = left;
 	this.right = right;
@@ -74,11 +89,11 @@ function False(){
 
 
 
-function Variable(id){
+export.Variable = function Variable(id){
 	this.id = id;
 };
 
-Variable.prototype.evaluation = function evaluation(assignments) {
+export.Variable.prototype.evaluation = function evaluation(assignments) {
 	if (!assignments  || ! assignments.hasOwnProperty(this.id))
 	{
 		throw new Error("Variable no existe");
