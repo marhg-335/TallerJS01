@@ -1,5 +1,5 @@
 function False(){
-	//do nothingggg
+	//do nothing
 }
 
  False.prototype.evaluation= function evaluation(){
