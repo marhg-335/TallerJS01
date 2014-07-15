@@ -1,4 +1,4 @@
- function True(){
+ var True = exports.True = function True(){
 		//do nothingggg
  }
 
