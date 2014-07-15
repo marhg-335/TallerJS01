@@ -1,6 +1,6 @@
 function Conjunction(left, right){
 	this.left = left;
-	this.right = rigth;
+	this.right = right;
 };
 
 Conjunction.prototype.evaluation = function evaluation(assignments) {
