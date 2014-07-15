@@ -3,7 +3,7 @@ function Biconditional(left, right) {
     this.right = right;
 }
 
-Conditional.prototype.evaluation = function evaluation(assignments) {
+Biconditional.prototype.evaluation = function evaluation(assignments) {
     var resLeft = this.left.evaluation(assignments);
     var resRight = this.right.evaluation(assignments);
 
