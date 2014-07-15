@@ -1,7 +1,7 @@
 	
 function ExclusiveDisjunction( left, right){ 
 	if (!left || !right ){
-		throw new Error("Error in ExclusiveDisjunction: left or right are undefined or null.");
+		throw new Error("ExclusiveDisjunction: invalid operands!");
 	}
 	this.left = left;
 	this.right = right;	
