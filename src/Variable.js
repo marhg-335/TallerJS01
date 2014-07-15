@@ -3,5 +3,9 @@ function Variable(id){
 };
 
 Variable.prototype.evaluation = function evaluation(assignments) {
-	return !!assignments[this.id];
+	if (! assignments.hasOwnProperty(this.id))
+	{
+		throw new Error("Variable no existe");
+	};
+	return !! assignments[this.id];
 };
