@@ -1,5 +1,5 @@
  function True(){
-		//do nothing probando
+		//do nothing
  }
 
  True.prototype.evaluation= function evaluation(){
