@@ -30,13 +30,13 @@ Conditional.prototype.evaluation = function evaluation(assignments) {
 
 
 /** Constructor de Conjunción. Toma como parametros la parte izquiera y la parte derecha */
-export.Conjunction = function Conjunction(left, right){
+exports.Conjunction = function Conjunction(left, right){
 	this.left = left;
 	this.right = right;
 };
 
 /** Retorna el resultado de evaluar la parte izquiera y la parte derecha utilizado el operador de conjunción logica */
-export.Conjunction.prototype.evaluation = function evaluation(assignments) {
+exports.Conjunction.prototype.evaluation = function evaluation(assignments) {
 	var l = this.left.evaluation(assignments);
 	var r = this.right.evaluation(assignments);
 	return (l && r);
@@ -93,16 +93,23 @@ var False = exports.False = function False(){
 
 
 
-export.Variable = function Variable(id){
+/** Constructor de Variable. Toma como parametro el identificador de la variable*/
+exports.Variable = function Variable(id){
 	this.id = id;
 };
 
-export.Variable.prototype.evaluation = function evaluation(assignments) {
+/** Metodo que toma por parametro un objeto con las asignaciones de las variables y retorna el valor booleano de la propia variable */
+exports.Variable.prototype.evaluation = function evaluation(assignments) {
 	if (!assignments  || ! assignments.hasOwnProperty(this.id))
 	{
 		throw new Error("Variable no existe");
 	};
 	return !! assignments[this.id];
+};
+
+/** Metodo genera una proposicion y le aplica el operador de negacion. Para esto se toma en cuneta la altura minima y maxima*/
+exports.Conjuntion.prototype.generate = function generate(random, min, max){
+     return new Conjuntion(Proposition.generate(random, min-1, max-1));
 };
 
 
