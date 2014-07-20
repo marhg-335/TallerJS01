@@ -42,6 +42,12 @@ exports.Conjunction.prototype.evaluation = function evaluation(assignments) {
 	return (l && r);
 };
 
+
+/** Metodo genera una proposicion y le aplica el operador de conjuncion. Para esto se toma en cuneta la altura minima y maxima*/
+exports.Conjuntion.prototype.generate = function generate(random1, random2, min, max){
+     return new Conjuntion(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
+};
+
 var Disjunction = exports.Disjunction = function Disjunction(left,right){
 	if (!!left || !!right){
 		throw new Error("Disjunction: invalid operands!");
@@ -106,12 +112,6 @@ exports.Variable.prototype.evaluation = function evaluation(assignments) {
 	};
 	return !! assignments[this.id];
 };
-
-/** Metodo genera una proposicion y le aplica el operador de negacion. Para esto se toma en cuneta la altura minima y maxima*/
-exports.Conjuntion.prototype.generate = function generate(random, min, max){
-     return new Conjuntion(Proposition.generate(random, min-1, max-1));
-};
-
 
 
 function Negation(operand){	
