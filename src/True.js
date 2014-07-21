@@ -8,3 +8,6 @@
 
 	}
 
+True.prototype.generate =  function generate(random,min,max){
+	return new True();
+};

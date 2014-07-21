@@ -9,3 +9,4 @@ var False = exports.False = function False(){
 
 False.prototype.generate =  function generate(random,min,max){
 	return new False();
+};
