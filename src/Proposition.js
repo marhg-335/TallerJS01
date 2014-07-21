@@ -1,6 +1,6 @@
 exports.Proposition = function Proposition(){ 
 	
-}
+};
 
 Proposition.generate(random, min, max){
 	var rand = Math.random();
@@ -80,4 +80,4 @@ Proposition.generate(random, min, max){
 		}
 			
 	}
-}
+};
