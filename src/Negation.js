@@ -6,13 +6,13 @@ exports.Negation = function Negation(operand){
 	this.operand = operand;	
 };
 
-/** Metodo generate para generar casos de prueba aleatorios*/
+/** Metodo generate para generar casos de prueba aleatorios
+	Retorna un objeto Negation con operando un objeto Proposition aleatorio*/
 Negation.generate( random, min, max ){
 	return new Negation(Proposition.generate(random, min - 1, max - 1) );
 }
 
-/**Metodo evaluation definida en el prototype de Negation. 
-   Retorna la negacion de la evaluacion de operand*/
+/**Retorna un booleano con el resultado de aplicar el operador de negacion a la evaluacion de operand*/
 exports.Negation.prototype.evaluation = function( assigments){
 	return !(this.operand.evaluation(assigments));
 };
