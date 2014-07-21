@@ -1,4 +1,4 @@
-var taller1 = (function()){
+var taller1 = (function(){
 	var exports = {};
 
 function Biconditional(left, right) {
@@ -29,17 +29,24 @@ Conditional.prototype.evaluation = function evaluation(assignments) {
 
 
 
-function Conjunction(left, right){
+/** Constructor de Conjunción. Toma como parametros la parte izquiera y la parte derecha */
+exports.Conjunction = function Conjunction(left, right){
 	this.left = left;
 	this.right = right;
 };
 
-Conjunction.prototype.evaluation = function evaluation(assignments) {
+/** Retorna el resultado de evaluar la parte izquiera y la parte derecha utilizado el operador de conjunción logica */
+exports.Conjunction.prototype.evaluation = function evaluation(assignments) {
 	var l = this.left.evaluation(assignments);
 	var r = this.right.evaluation(assignments);
 	return (l && r);
 };
 
+
+/** Metodo genera una proposicion y le aplica el operador de conjuncion. Para esto se toma en cuneta la altura minima y maxima*/
+exports.Conjuntion.prototype.generate = function generate(random1, random2, min, max){
+     return new Conjuntion(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
+};
 
 var Disjunction = exports.Disjunction = function Disjunction(left,right){
 	if (!!left || !!right){
@@ -92,18 +99,19 @@ var False = exports.False = function False(){
 
 
 
-export.Variable = function Variable(id){
+/** Constructor de Variable. Toma como parametro el identificador de la variable*/
+exports.Variable = function Variable(id){
 	this.id = id;
 };
 
-export.Variable.prototype.evaluation = function evaluation(assignments) {
+/** Metodo que toma por parametro un objeto con las asignaciones de las variables y retorna el valor booleano de la propia variable */
+exports.Variable.prototype.evaluation = function evaluation(assignments) {
 	if (!assignments  || ! assignments.hasOwnProperty(this.id))
 	{
 		throw new Error("Variable no existe");
 	};
 	return !! assignments[this.id];
 };
-
 
 
 function Negation(operand){	

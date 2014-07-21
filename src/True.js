@@ -1,9 +1,13 @@
+/**Constructor de True. */
  var True = exports.True = function True(){
-		//do nothingggg
+		//do nothing
  }
-
+/** Metodo que retorna si una evaluacion es True.*/
  True.prototype.evaluation= function evaluation(){
 	return true;
 
 	}
 
+True.generate =  function generate(random,min,max){
+	return new True();
+};
