@@ -2,7 +2,7 @@ exports.Proposition = function Proposition(){
 	
 };
 
-Proposition.generate(random, min, max){
+Proposition.generate = function generate(random, min, max){
 	var rand = Math.random();
 	if (min > 0){
 		var n = Math.floor((Math.random()*6 + 1));

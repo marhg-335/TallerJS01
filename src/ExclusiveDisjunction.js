@@ -17,6 +17,6 @@ exports.ExclusiveDisjunction.prototype.evaluation= function( assigments ){
 
 /** Metodo generate para generar casos de prueba aleatorios.
 	Retorna un objeto ExclusiveDisjunction con operandos left y right como objetos Proposition aleatorios.*/
-ExclusiveDisjunction.generate( random, min, max){
+ExclusiveDisjunction.generate = function generate( random, min, max){
 	return new ExclusiveDisjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
 };

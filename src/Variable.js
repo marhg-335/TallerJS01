@@ -3,7 +3,7 @@ exports.Variable = function Variable(id){
 	this.id = id;
 };
 
-Variable.generate( random, min, max){
+Variable.generate = function generate( random, min, max){
 	var idVariable = String.fromCharCode(97 + Math.random()*26 )
 	return new  Variable(idVariable);
 };

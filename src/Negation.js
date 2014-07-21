@@ -8,7 +8,7 @@ exports.Negation = function Negation(operand){
 
 /** Metodo generate para generar casos de prueba aleatorios
 	Retorna un objeto Negation con operand un objeto Proposition aleatorio*/
-Negation.generate( random, min, max ){
+Negation.generate = function generate( random, min, max ){
 	return new Negation(Proposition.generate(random, min - 1, max - 1) );
 };
 
