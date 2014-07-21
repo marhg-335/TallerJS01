@@ -7,16 +7,16 @@ exports.ExclusiveDisjunction = function ExclusiveDisjunction( left, right){
 	this.right = right;	
 };
 
-/** Metodo generate para generar casos de prueba aleatorios.
-	Retorna un objeto ExclusiveDisjunction con operandos left y right como objetos Proposition aleatorios.*/
-ExclusiveDisjunction.generate( random, min, max){
-	return new ExclusiveDisjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
-};
-
 /**Retorna un booleano con el resultado de aplicar el operador de disyuncion exclusiva
    a la evaluacion de left y right*/
 exports.ExclusiveDisjunction.prototype.evaluation= function( assigments ){
 	p = this.left.evaluation( assigments);
 	q = this.right.evaluation(assigments);
 	return  p !== q;
+};
+
+/** Metodo generate para generar casos de prueba aleatorios.
+	Retorna un objeto ExclusiveDisjunction con operandos left y right como objetos Proposition aleatorios.*/
+ExclusiveDisjunction.generate( random, min, max){
+	return new ExclusiveDisjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
 };
