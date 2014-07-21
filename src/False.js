@@ -7,6 +7,6 @@ var False = exports.False = function False(){
 	return false;
 };
 
-False.prototype.generate =  function generate(random,min,max){
+False.generate =  function generate(random,min,max){
 	return new False();
 };
