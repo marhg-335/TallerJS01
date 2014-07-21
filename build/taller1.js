@@ -48,6 +48,7 @@ exports.Conjuntion.prototype.generate = function generate(random1, random2, min,
      return new Conjuntion(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
 };
 
+/**Constructor de Disjunction. Toma como parametros la parte izquierda y derecha de la disjuncion */
 var Disjunction = exports.Disjunction = function Disjunction(left,right){
 	if (!!left || !!right){
 		throw new Error("Disjunction: invalid operands!");
@@ -55,7 +56,7 @@ var Disjunction = exports.Disjunction = function Disjunction(left,right){
 	this.left=left;
 	this.right=right;
 }
-
+/** Metodo que devuele la evalucion de la parte izquiera y derecha mediante la disjuncion.*/
 Disjunction.prototype.evaluation=function evaluation(assigments){
 	var l=this.left.evaluation(assigments);
 	var r=this.right.evaluation(assigments);
@@ -63,6 +64,10 @@ Disjunction.prototype.evaluation=function evaluation(assigments){
 	
 }
 
+
+Disjunction.generate =  function generate(random,min,max){
+	return new Disjunction();
+};
 
 	
 function ExclusiveDisjunction( left, right){ 
@@ -79,25 +84,32 @@ ExclusiveDisjunction.prototype.evaluation= function( assigments ){
 };
 
 
+/** Constructor de False. */
 var False = exports.False = function False(){
 	//do nothing
 };
-
+/** Metodo que retorna si una evaluacion es False. */
  False.prototype.evaluation= function evaluation(){
 	return false;
 };
 
+False.generate =  function generate(random,min,max){
+	return new False();
+};
 
+/**Constructor de True. */
  var True = exports.True = function True(){
-		//do nothingggg
+		//do nothing
  }
-
+/** Metodo que retorna si una evaluacion es True.*/
  True.prototype.evaluation= function evaluation(){
 	return true;
 
 	}
 
-
+True.generate =  function generate(random,min,max){
+	return new True();
+};
 
 /** Constructor de Variable. Toma como parametro el identificador de la variable*/
 exports.Variable = function Variable(id){
