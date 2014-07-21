@@ -14,7 +14,6 @@ Disjunction.prototype.evaluation=function evaluation(assigments){
 	
 }
 
-
-Disjunction.generate =  function generate(random,min,max){
-	return new Disjunction();
+Disjunction.generate = function generate( random, min, max){
+	return new Disjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
 };
