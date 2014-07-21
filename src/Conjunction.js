@@ -13,6 +13,6 @@ Conjunction.prototype.evaluation = function evaluation(assignments) {
 
 
 /** Metodo genera una proposicion y le aplica el operador de conjuncion. Para esto se toma en cuneta la altura minima y maxima*/
-exports.Conjuntion.generate = function generate(random1, random2, min, max){
+exports.Conjunction.generate = function generate(random1, random2, min, max){
      return new Conjuntion(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
 };
