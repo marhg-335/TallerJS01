@@ -1,4 +1,4 @@
-var taller1 = (function()){
+var taller1 = (function(){
 	var exports = {};
 
 function Biconditional(left, right) {
