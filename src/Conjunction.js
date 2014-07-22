@@ -1,5 +1,5 @@
 /** Constructor de Conjunción. Toma como parametros la parte izquiera y la parte derecha */
-exports.Conjunction = function Conjunction(left, right){
+var Conjunction = exports.Conjunction = function Conjunction(left, right){
 	this.left = left;
 	this.right = right;
 };
@@ -13,6 +13,6 @@ Conjunction.prototype.evaluation = function evaluation(assignments) {
 
 
 /** Metodo genera una proposicion y le aplica el operador de conjuncion. Para esto se toma en cuneta la altura minima y maxima*/
-exports.Conjunction.generate = function generate(random1, random2, min, max){
+Conjunction.generate = function generate(random1, random2, min, max){
      return new Conjunction(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
 };

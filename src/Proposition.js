@@ -1,4 +1,4 @@
-exports.Proposition = function Proposition(){ 
+var Proposition = exports.Proposition = function Proposition(){ 
 	
 };
 
