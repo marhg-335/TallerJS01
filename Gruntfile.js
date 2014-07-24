@@ -40,6 +40,6 @@ sources = sources.map( function(path){
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'karma']);
 
 };
