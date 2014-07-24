@@ -27,11 +27,17 @@ sources = sources.map( function(path){
         dest: 'build/taller1.js',
       },
     },
+	karma: {
+		unit: {
+			configFile: 'test/karma.conf.js'
+		}
+	}
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
   grunt.registerTask('default', ['concat', 'uglify']);
