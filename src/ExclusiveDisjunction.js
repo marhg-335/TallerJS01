@@ -10,8 +10,8 @@ var ExclusiveDisjunction = exports.ExclusiveDisjunction = function ExclusiveDisj
 /**Retorna un booleano con el resultado de aplicar el operador de disyuncion exclusiva
    a la evaluacion de left y right*/
 ExclusiveDisjunction.prototype.evaluation= function( assigments ){
-	p = this.left.evaluation( assigments);
-	q = this.right.evaluation(assigments);
+	var p = this.left.evaluation( assigments);
+	var q = this.right.evaluation(assigments);
 	return  p !== q;
 };
 
