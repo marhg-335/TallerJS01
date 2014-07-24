@@ -7,7 +7,7 @@
 	return true;
 
 	}
-/** */
+/**Metodo generate que retorna true */
 True.generate =  function generate(random,min,max){
 	return new True();
 };
