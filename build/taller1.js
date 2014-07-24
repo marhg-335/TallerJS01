@@ -1,3 +1,4 @@
+"use strict";
 var taller1 = (function(){
 	var exports = {};
 
@@ -23,8 +24,8 @@ Biconditional.generate = function generate( random, min, max){
 
 
 
-/** Constructor Conditional. */
-function Conditional(left, right) {
+/** Constructor Conditional */
+var Conditional = exports.Conditional = function Conditional(left, right) {
     if (!left || !right) {
         throw new Error("Conditional: invalid operands!");
     }
@@ -42,9 +43,6 @@ Conditional.prototype.evaluation = function evaluation(assignments) {
 Conditional.generate = function generate(random, min, max) {
     return new Conditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min - 1, max - 1));
 };
-
-
-
 
 /** Constructor de Conjunción. Toma como parametros la parte izquiera y la parte derecha */
 var Conjunction = exports.Conjunction = function Conjunction(left, right){
@@ -96,8 +94,8 @@ var ExclusiveDisjunction = exports.ExclusiveDisjunction = function ExclusiveDisj
 /**Retorna un booleano con el resultado de aplicar el operador de disyuncion exclusiva
    a la evaluacion de left y right*/
 ExclusiveDisjunction.prototype.evaluation= function( assigments ){
-	p = this.left.evaluation( assigments);
-	q = this.right.evaluation(assigments);
+	var p = this.left.evaluation( assigments);
+	var q = this.right.evaluation(assigments);
 	return  p !== q;
 };
 

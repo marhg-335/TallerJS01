@@ -1,5 +1,5 @@
-/** Constructor Conditional. */
-function Conditional(left, right) {
+/** Constructor Conditional */
+var Conditional = exports.Conditional = function Conditional(left, right) {
     if (!left || !right) {
         throw new Error("Conditional: invalid operands!");
     }
@@ -17,5 +17,3 @@ Conditional.prototype.evaluation = function evaluation(assignments) {
 Conditional.generate = function generate(random, min, max) {
     return new Conditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min - 1, max - 1));
 };
-
-
