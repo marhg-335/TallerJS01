@@ -67,7 +67,7 @@ Conjunction.generate = function generate(random1, random2, min, max){
 
 /**Constructor de Disjunction. Toma como parametros la parte izquierda y derecha de la disjuncion */
 var Disjunction = exports.Disjunction = function Disjunction(left,right){
-	if (!!left || !!right){
+	if (!left || !right){
 		throw new Error("Disjunction: invalid operands!");
 }
 	this.left=left;

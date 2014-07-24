@@ -1,6 +1,6 @@
 /**Constructor de Disjunction. Toma como parametros la parte izquierda y derecha de la disjuncion */
 var Disjunction = exports.Disjunction = function Disjunction(left,right){
-	if (!!left || !!right){
+	if (!left || !right){
 		throw new Error("Disjunction: invalid operands!");
 }
 	this.left=left;
