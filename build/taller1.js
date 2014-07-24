@@ -116,7 +116,7 @@ var False = exports.False = function False(){
  False.prototype.evaluation= function evaluation(){
 	return false;
 };
-/** */
+/**Metodo generate que retorna false. */
 False.generate =  function generate(random,min,max){
 	return new False();
 };
@@ -130,7 +130,7 @@ False.generate =  function generate(random,min,max){
 	return true;
 
 	}
-/** */
+/**Metodo generate que retorna true */
 True.generate =  function generate(random,min,max){
 	return new True();
 };
