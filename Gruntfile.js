@@ -28,10 +28,22 @@ sources = sources.map( function(path){
       },
     },
 	karma: {
-		unit: {
-			configFile: 'test/karma.conf.js'
-		}
+		options: {
+			configFile: 'test/karma.conf.js',
+			
+		},
+		basictest:{
+			browsers: ['PhantomJS']
+		},
+		testWindows:{
+			browsers:['Chrome','Firefox','IE']
+		},
+		testMac: {
+			browsers: ['Safari','Chrome','Firefox']
+		},
 	}
+	
+	
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -40,6 +52,6 @@ sources = sources.map( function(path){
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'uglify', 'karma']);
+  grunt.registerTask('default', ['concat', 'uglify', 'karma:basictest']);
 
 };
