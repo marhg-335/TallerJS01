@@ -22,8 +22,6 @@ Biconditional.generate = function generate( random, min, max){
 	return new Biconditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
 };
 
-
-
 /** Constructor Conditional */
 var Conditional = exports.Conditional = function Conditional(left, right) {
     if (!left || !right) {
@@ -44,24 +42,25 @@ Conditional.generate = function generate(random, min, max) {
     return new Conditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min - 1, max - 1));
 };
 
-/** Constructor de Conjunción. Toma como parametros la parte izquiera y la parte derecha */
-var Conjunction = exports.Conjunction = function Conjunction(left, right){
-	this.left = left;
-	this.right = right;
-};
+var Conjunction = exports.Conjunction = declare(Preposition, {		
+	/** Constructor de Conjunción. Toma como parametros la parte izquiera y la parte derecha */
+	'constructor' : function Conjunction(left, right){
+		this.left = left;
+		this.right = right;
+	},
 
-/** Retorna el resultado de evaluar la parte izquiera y la parte derecha utilizado el operador de conjunción logica */
-Conjunction.prototype.evaluation = function evaluation(assignments) {
-	var l = this.left.evaluation(assignments);
-	var r = this.right.evaluation(assignments);
-	return (l && r);
-};
+	/** Retorna el resultado de evaluar la parte izquiera y la parte derecha utilizado el operador de conjunción logica */
+	'evaluation' : function evaluation(assignments) {
+		var l = this.left.evaluation(assignments);
+		var r = this.right.evaluation(assignments);
+		return (l && r);
+	},
 
-
-/** Metodo genera una proposicion y le aplica el operador de conjuncion. Para esto se toma en cuneta la altura minima y maxima*/
-Conjunction.generate = function generate(random1, random2, min, max){
-     return new Conjunction(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
-};
+	/** Metodo genera una proposicion y le aplica el operador de conjuncion. Para esto se toma en cuneta la altura minima y maxima*/
+	'static generate' : function generate(random1, random2, min, max){
+	     return new Conjunction(Proposition.generate(random1, min-1, max-1), Proposition.generate(random2, min-1, max-1));
+	}
+});
 
 /**Constructor de Disjunction. Toma como parametros la parte izquierda y derecha de la disjuncion */
 var Disjunction = exports.Disjunction = function Disjunction(left,right){
@@ -133,25 +132,27 @@ True.generate =  function generate(random,min,max){
 	return new True();
 };
 
-/** Constructor de Variable. Toma como parametro el identificador de la variable*/
-var Variable = exports.Variable = function Variable(id){
-	this.id = id;
-};
+var Variable = exports.Variable = declare (Proposition, {
+	/** Constructor de Variable. Toma como parametro el identificador de la variable*/
+	'constructor' : function Variable(id){
+		this.id = id;
+	},
 
-/** Metodo que toma por parametro un objeto con las asignaciones de las variables y retorna el valor booleano de la propia variable */
-Variable.prototype.evaluation = function evaluation(assignments) {
-	if (!assignments  || ! assignments.hasOwnProperty(this.id))
-	{
-		throw new Error("Variable no existe");
-	};
-	return !! assignments[this.id];
-};
+	/** Metodo que toma por parametro un objeto con las asignaciones de las variables y retorna el valor booleano de la propia variable */
+	'evaluation' : function evaluation(assignments) {
+		if (!assignments  || ! assignments.hasOwnProperty(this.id))
+		{
+			throw new Error("Variable no existe");
+		};
+		return !! assignments[this.id];
+	},
 
-Variable.generate = function generate( random, min, max){
+	/** Generador Aleatorio*/
+	'static generate' : function generate( random, min, max){
 	var idVariable = String.fromCharCode(97 + Math.random()*26 )
 	return new  Variable(idVariable);
-};
-
+	}
+});
 
 /**Constructor de Negation.*/
 var Negation = exports.Negation = function Negation(operand){	
