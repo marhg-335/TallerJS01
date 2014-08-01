@@ -1,11 +1,16 @@
 
 var Proposition = exports.Proposition = function Proposition(){ 
 	function union( a, b ){
-		
-		var c = a.concat(b.filter(function(i){
-	    	return a.indexOf(i) == -1;
+		return a.concat(b.filter(function(i){
+	    	return a.indexOf(i) === -1;
 			}));
-		console.log(c); // [
+	}
+
+	function randomAssigments(variables){
+		assigments = {};
+		for (var i = 0; i <= variables.length; i++) {
+			assigments[variables[i]] = (Math.random() <= 0.5);
+		};
 	}
 };
 
