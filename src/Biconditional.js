@@ -1,6 +1,6 @@
 var Biconditional = exports.Biconditional = declare(Proposition, {
     /** Constructor Biconditional. */
-    constructor: function Biconditional(left, right) {
+    'constructor': function Biconditional(left, right) {
         if (!left || !right) {
             throw new Error("Biconditional: invalid operands!");
         }
@@ -9,8 +9,8 @@ var Biconditional = exports.Biconditional = declare(Proposition, {
         this.right = right;
     },
     /** Evaluation Biconditional */
-    evaluation: function evaluation(assignments) {
-        return left.evaluation(assignments) === right.evaluation(assignments);
+    'evaluation': function evaluation(assignments) {
+        return this.left.evaluation(assignments) === this.right.evaluation(assignments);
     },
     /** Generate Biconditional */
     'static generate': function generate(Random, min, max) {

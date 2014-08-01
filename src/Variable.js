@@ -1,6 +1,9 @@
 var Variable = exports.Variable = declare (Proposition, {
 	/** Constructor de Variable. Toma como parametro el identificador de la variable*/
 	'constructor' : function Variable(id){
+		if (!id) {
+        	throw new Error("Variable: invalid operand!");
+    	}
 		this.id = id;
 	},
 
