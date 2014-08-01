@@ -5,7 +5,7 @@ var False = exports.False = declare(Proposition,{
 	//do nothing
 };
 /** Metodo que retorna si una evaluacion es False. */
-evaluation= function evaluation(){
+evaluation : function evaluation(){
 	return false;
 };
 /**Metodo generate que retorna false. */

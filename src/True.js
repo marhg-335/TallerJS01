@@ -5,7 +5,7 @@
 		//do nothing
  }
 /** Metodo que retorna si una evaluacion es True.*/
- True.prototype.evaluation= function evaluation(){
+evaluation : function evaluation(){
 	return true;
 
 	}
