@@ -4,7 +4,7 @@ var Disjunction = exports.Disjunction = declare (Proposition, {
 	Proposition.call(this);
 	if (!left || !right){
 		throw new Error("Disjunction: invalid operands!");
-},
+	}
 	this.left=left;
 	this.right=right;
 },
@@ -17,5 +17,5 @@ evaluation : function evaluation(assigments){
 /** Retorna una Disjuncion cuyos operandos son objetos proposition.*/
 'static generate': function generate( random, min, max){
 	return new Disjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
-});
+}});
 

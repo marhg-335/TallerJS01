@@ -12,6 +12,7 @@ evaluation : function evaluation(){
 /**Metodo generate que retorna true */
 'static generate' : function generate(random,min,max){
 	return new True();
-};
+}
+});
 
 
