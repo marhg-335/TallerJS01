@@ -17,4 +17,3 @@ Biconditional.prototype.evaluation = function evaluation(assignments) {
 Biconditional.generate = function generate( random, min, max){
 	return new Biconditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
 };
-
