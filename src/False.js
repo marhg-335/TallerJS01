@@ -12,4 +12,8 @@ evaluation : function evaluation(){
 'static generate': function generate(random,min,max){
 	return new False();
 }
+
+ variables:function variables(){
+	return [];
+}
 });

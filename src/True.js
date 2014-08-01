@@ -13,6 +13,10 @@ evaluation : function evaluation(){
 'static generate' : function generate(random,min,max){
 	return new True();
 }
+
+vaiables: function variables(){
+	return [];
+}
 });
 
 
