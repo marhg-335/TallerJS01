@@ -6,14 +6,23 @@ var Conditional = exports.Conditional = function Conditional(left, right) {
     this.left = left;
     this.right = right;
 }
-/** Evaluation Conditional */
-Conditional.prototype.evaluation = function evaluation(assignments) {
-    var resLeft = this.left.evaluation(assignments);
-    var resRight = this.right.evaluation(assignments);
-
-    return !resLeft || resRight;
-}
-/** Generate Conditional */
-Conditional.generate = function generate(random, min, max) {
-    return new Conditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min - 1, max - 1));
-};
+var Conditional = exports.Conditional = declare(Proposition, {
+    /** Constructor Conditional. */
+    constructor: function Conditional(left, right) {
+        if (!left || !right) {
+            throw new Error("Conditional: invalid operands!");
+        }
+        Proposition.call(this);
+        this.left = left;
+        this.right = right;
+    },
+    /** Evaluation Conditional */
+    evaluation: function evaluation(assignments) {
+        return !left.evaluation(assignments) || right.evaluation(assignments);
+    },
+    /** Generate Conditional */
+    'static generate': function generate(Random, min, max) {
+        return new Conditional(Proposition.generate(Random, min - 1, max - 1),
+			Proposition.generate(Random, min - 1, max - 1));
+    }
+});
