@@ -4,7 +4,6 @@ var Disjunction = exports.Disjunction = declare (Proposition, {
 	Proposition.call(this);
 	if (!left || !right){
 		throw new Error("Disjunction: invalid operands!");
-},
 	this.left=left;
 	this.right=right;
 },
