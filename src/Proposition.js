@@ -1,6 +1,12 @@
 
 var Proposition = exports.Proposition = function Proposition(){ 
-	
+	function union( a, b ){
+		
+		var c = a.concat(b.filter(function(i){
+	    	return a.indexOf(i) == -1;
+			}));
+		console.log(c); // [
+	}
 };
 
 Proposition.generate = function generate(random, min, max){

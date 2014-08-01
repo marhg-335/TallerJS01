@@ -12,6 +12,10 @@ var Negation = exports.Negation = declare(Proposition, {
 	evaluation: function evaluation( assigments) {
 		return !(this.operand.evaluation(assigments));
 	},
+
+	'static variables': function variables(){
+		return this.operand.variables();
+	},
 	/** Metodo generate para generar casos de prueba aleatorios
 	Retorna un objeto Negation con operand un objeto Proposition aleatorio*/
 	'static generate': function generate( Random, min, max ) {

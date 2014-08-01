@@ -8,7 +8,7 @@ var False = exports.False = declare(Proposition,{
 evaluation : function evaluation(){
 	return false;
 },
-/** Metodo generate que retorna false. */
+/**Metodo generate que retorna false. */
 'static generate': function generate(random,min,max){
 	return new False();
 }

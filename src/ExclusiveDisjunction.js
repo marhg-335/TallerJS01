@@ -16,6 +16,10 @@ var ExclusiveDisjunction = exports.ExclusiveDisjunction = declare( Proposition, 
 		var q = this.right.evaluation(assigments);
 		return  p !== q;
 	},
+
+	variables: function variables() {
+		return union( this.left.variables(), this.right.variables() );
+	},
 	/** Metodo generate para generar casos de prueba aleatorios.
 	Retorna un objeto ExclusiveDisjunction con operandos left y right como objetos Proposition aleatorios.*/
 	'static generate': function generate( Random, min, max ) {

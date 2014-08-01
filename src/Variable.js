@@ -20,5 +20,10 @@ var Variable = exports.Variable = declare (Proposition, {
 	'static generate' : function generate( random, min, max){
 	var idVariable = String.fromCharCode(97 + Math.random()*26 )
 	return new  Variable(idVariable);
+	},
+
+	/** Retorna lista con id de variable*/
+	'variables' : function variables(){
+		return [this.id]
 	}
 });
