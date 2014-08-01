@@ -1,19 +1,20 @@
-/** Constructor Biconditional. */
-var Biconditional = exports.Biconditional = function Biconditional(left, right) {
-    if (!left || !right) {
-        throw new Error("Biconditional: invalid operands!");
+var Biconditional = exports.Biconditional = declare(Proposition, {
+    /** Constructor Biconditional. */
+    constructor: function Biconditional(left, right) {
+        if (!left || !right) {
+            throw new Error("Biconditional: invalid operands!");
+        }
+        Proposition.call(this);
+        this.left = left;
+        this.right = right;
+    },
+    /** Evaluation Biconditional */
+    evaluation: function evaluation(assignments) {
+        return left.evaluation(assignments) === right.evaluation(assignments);
+    },
+    /** Generate Biconditional */
+    'static generate': function generate(Random, min, max) {
+        return new Biconditional(Proposition.generate(Random, min - 1, max - 1),
+			Proposition.generate(Random, min - 1, max - 1));
     }
-    this.left = left;
-    this.right = right;
-}
-/** Evaluation Biconditional */
-Biconditional.prototype.evaluation = function evaluation(assignments) {
-    var resLeft = this.left.evaluation(assignments);
-    var resRight = this.right.evaluation(assignments);
-
-    return (resLeft === resRight);
-}
-/** Generate Biconditional */
-Biconditional.generate = function generate( random, min, max){
-	return new Biconditional(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
-};
+});
