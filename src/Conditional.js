@@ -18,7 +18,7 @@ var Conditional = exports.Conditional = declare(Proposition, {
     },
     /** Evaluation Conditional */
     evaluation: function evaluation(assignments) {
-        return !left.evaluation(assignments) || right.evaluation(assignments);
+        return !this.left.evaluation(assignments) || this.right.evaluation(assignments);
     },
     /** Generate Conditional */
     'static generate': function generate(Random, min, max) {

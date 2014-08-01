@@ -166,7 +166,7 @@ var Conditional = exports.Conditional = declare(Proposition, {
     },
     /** Evaluation Conditional */
     evaluation: function evaluation(assignments) {
-        return !left.evaluation(assignments) || right.evaluation(assignments);
+        return !this.left.evaluation(assignments) || this.right.evaluation(assignments);
     },
     /** Generate Conditional */
     'static generate': function generate(Random, min, max) {
@@ -210,31 +210,30 @@ var Conjunction = exports.Conjunction = declare(Proposition, {
 
 /**Constructor de Disjunction. Toma como parametros la parte izquierda y derecha de la disjuncion */
 var Disjunction = exports.Disjunction = declare (Proposition, {
-	constructor : function Disjunction(left,right){
-	Proposition.call(this);
-	if (!left || !right){
-		throw new Error("Disjunction: invalid operands!");
+			constructor : function Disjunction(left,right){
+			Proposition.call(this);
+			if (!left || !right){
+				throw new Error("Disjunction: invalid operands!");
+			}
+			this.left=left;
+			this.right=right;
+		},
+		/** Metodo que devuele la evalucion de la parte izquiera y derecha mediante la disjuncion.*/
+		evaluation : function evaluation(assigments){
+			var l=this.left.evaluation(assigments);
+			var r=this.right.evaluation(assigments);
+			return(l||r);
+		},
+		/** Retorna una Disjuncion cuyos operandos son objetos proposition.*/
+		'static generate': function generate( random, min, max){
+			return new Disjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
+		},
+
+		 variables: function variables(){
+			return union (this.left.variables(), this.right.variables());
+		}
 	}
-	this.left=left;
-	this.right=right;
-},
-/** Metodo que devuele la evalucion de la parte izquiera y derecha mediante la disjuncion.*/
-evaluation : function evaluation(assigments){
-	var l=this.left.evaluation(assigments);
-	var r=this.right.evaluation(assigments);
-	return(l||r);
-},
-/** Retorna una Disjuncion cuyos operandos son objetos proposition.*/
-'static generate': function generate( random, min, max){
-	return new Disjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
-},
- variables: function variables(){
-	return union (left.variables(),right.variables());
-}
-}
 );
-
-
 
 /**Constructor de ExclusiveDisjunction.*/
 var ExclusiveDisjunction = exports.ExclusiveDisjunction = declare( Proposition, {
