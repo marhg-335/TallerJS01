@@ -16,5 +16,10 @@ var Biconditional = exports.Biconditional = declare(Proposition, {
     'static generate': function generate(Random, min, max) {
         return new Biconditional(Proposition.generate(Random, min - 1, max - 1),
 			Proposition.generate(Random, min - 1, max - 1));
+    },
+
+    /** Retoran lista de variables en el sub arbol*/
+    'variables': function variables() {
+        return union(this.left.variables(), this.right.variables())
     }
 });
