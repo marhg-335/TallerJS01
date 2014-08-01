@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
 var sources = ['__prologe__.js','Biconditional.js','Conditional.js','Conjunction.js','Disjunction.js',
-			'ExclusiveDisjunction.js','False.js','True.js','Variable.js', 'Negation.js','Proposition.js','__epilogue__.js', ];
+			'ExclusiveDisjunction.js','False.js','True.js','Variable.js', 'Negation.js','Proposition.js', 'oop.js','__epilogue__.js', ];
 sources = sources.map( function(path){
 	return 'src/' + path;
 	});
