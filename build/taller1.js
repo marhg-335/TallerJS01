@@ -175,6 +175,7 @@ Negation.generate = function generate( random, min, max ){
 
 
 
+
 var Proposition = exports.Proposition = function Proposition(){ 
 	
 };

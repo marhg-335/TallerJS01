@@ -19,15 +19,6 @@ describe("Evaluation Test", function(){
 		expect((new taller1.Biconditional(new taller1.False(),new taller1.True())).evaluation({})).toBe(false);
 		expect((new taller1.Biconditional(new taller1.False(),new taller1.False())).evaluation({})).toBe(true);
 	});
-
-	it("Biconditional", function(){
-		expect((new taller1.Conditional(new taller1.True(),new taller1.True())).evaluation({})).toBe(true);
-		expect((new taller1.Conditional(new taller1.True(),new taller1.False())).evaluation({})).toBe(false);
-		expect((new taller1.Conditional(new taller1.False(),new taller1.True())).evaluation({})).toBe(true);
-		expect((new taller1.Conditional(new taller1.False(),new taller1.False())).evaluation({})).toBe(true);
-	});
-
-
 	
 	it("Disjunction", function(){
 		var dis = new taller1.Disjunction(new taller1.Variable("p"),new taller1.Variable("q"));
@@ -36,8 +27,6 @@ describe("Evaluation Test", function(){
 		expect(dis.evaluation({p:false,q:true})).toBe(true);
 		expect(dis.evaluation({p:true,q:true})).toBe(true);
 	});
-
-
 
 	it("testcase Tabla Verdad Negation", function() {
 		var negation = new taller1.Negation(new taller1.Variable("p"));
@@ -59,7 +48,5 @@ describe("Evaluation Test", function(){
 		expect(evalTrueExDisjFalse).toBe(true);
 		expect(evalFalseExDisjTrue).toBe(true); 
 		expect(evalFalseExDisjFalse).toBe(false);
-	});
-
-	
+	});	
 });
