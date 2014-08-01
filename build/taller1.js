@@ -194,7 +194,14 @@ var Disjunction = exports.Disjunction = declare (Proposition, {
 	Proposition.call(this);
 	if (!left || !right){
 		throw new Error("Disjunction: invalid operands!");
+<<<<<<< HEAD
 	}
+=======
+<<<<<<< HEAD
+},
+=======
+>>>>>>> a2b54b1830ff33d1c11ea80d735a32c062ed0c05
+>>>>>>> 8e89e27a019c83cf74ae85633cc84019c80bf71e
 	this.left=left;
 	this.right=right;
 },
@@ -207,7 +214,11 @@ evaluation : function evaluation(assigments){
 /** Retorna una Disjuncion cuyos operandos son objetos proposition.*/
 'static generate': function generate( random, min, max){
 	return new Disjunction(Proposition.generate(random, min - 1, max - 1), Proposition.generate(random, min -1, max - 1) );
+<<<<<<< HEAD
+});
+=======
 }});
+>>>>>>> a2b54b1830ff33d1c11ea80d735a32c062ed0c05
 
 
 
@@ -254,7 +265,10 @@ evaluation : function evaluation(){
 /**Metodo generate que retorna false. */
 'static generate': function generate(random,min,max){
 	return new False();
+<<<<<<< HEAD
+=======
 }
+>>>>>>> a2b54b1830ff33d1c11ea80d735a32c062ed0c05
 });
 
 /**Constructor de True. */
@@ -273,6 +287,9 @@ evaluation : function evaluation(){
 	return new True();
 }
 });
+
+
+
 
 
 
